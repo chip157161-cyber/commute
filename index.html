@@ -46,6 +46,9 @@ function company() {
   const hh = now.getHours();
   const mm = now.getMinutes();
 
+const m1 = Math.floor(mm / 10);
+const m2 = mm % 10;
+
   alert(`分は ${mm}`);
 }
 
