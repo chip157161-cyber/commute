@@ -46,12 +46,13 @@ function company() {
   const hh = now.getHours();
   const mm = now.getMinutes();
 
-const m1 = Math.floor(mm / 10);
-const m2 = mm % 10;
+  const m1 = Math.floor(mm / 10);
+  const m2 = mm % 10;
 
-  alert(`m1=${m1}, m2=${m2}`);
+  const url =
+    `https://transit.yahoo.co.jp/search/result?from=%E9%AB%98%E8%BC%AA%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4&to=%E4%BF%9D%E5%9C%9F%E3%83%B6%E8%B0%B7&fromgid=&togid=&flatlon=&tlatlon=&via=&viacode=&y=${y}&m=${m}&d=${d}&hh=${hh}&m1=${m1}&m2=${m2}&type=1&ticket=ic&expkind=1&userpass=1&ws=3&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1`;
 
-
+  alert(window.location.href = url;);
 }
 
 
