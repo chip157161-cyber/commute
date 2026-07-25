@@ -18,7 +18,13 @@
 function company() {
   const now = new Date();
 
-  alert(now.getFullYear());
+  const y = now.getFullYear();
+  const m = now.getMonth() + 1;
+  const d = now.getDate();
+  const hh = now.getHours();
+  const mm = now.getMinutes();
+
+  alert(`${y}/${m}/${d} ${hh}:${mm}`);
 }
 
 
