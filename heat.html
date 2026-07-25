@@ -57,7 +57,9 @@ button:active {
 <script>
 
 async function testApi() {
-  alert("ここまでは動いた");
+  const response = await fetch("https://www.wbgt.env.go.jp/sp/wbgt/data/WBGT.php");
+
+  alert(response.status);
 }
 
 </script>
