@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>暑さチェック</title>
+
+<h1>🌡️ 暑さチェック</h1>
+
+</head>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    gap: 70px;
+    background: #f5f5f5;
+}
+
+button {
+    width: 90%;
+    max-width: 500px;
+    height: 110px;
+    font-size: 34px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+.go {
+    background: #1976d2;
+}
+
+.home {
+    background: #2e7d32;
+}
+.hot {
+    background: orange;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+</style>
+
+<body>
+
+
+<button onclick="testApi()">APIテスト</button>
+
+<script>
+
+async function testApi() {
+  alert("ここまでは動いた");
+}
+
+</script>
+
+</body>
+</html>
