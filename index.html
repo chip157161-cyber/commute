@@ -31,13 +31,33 @@ button {
 
 <h1>通勤アプリ</h1>
 
-<button onclick="company()">会社へ</button>
+<button onclick="tocompany()">出社</button>
 
-<button>帰宅</button>
+<button onclick="fromcompany()">帰宅</button>
 
 
 <script>
-function company() {
+function tocompany() {
+  const now = new Date();
+
+  const y = now.getFullYear();
+  const m = now.getMonth() + 1;
+  const d = now.getDate();
+  const hh = now.getHours();
+  const mm = now.getMinutes();
+
+  const m1 = Math.floor(mm / 10);
+  const m2 = mm % 10;
+
+  const url =
+    `https://transit.yahoo.co.jp/search/result?from=%E6%9D%B1%E6%88%B8%E5%A1%9A&to=%E7%94%B0%E7%94%BA&fromgid=&togid=&flatlon=&tlatlon=&via=&viacode=&y=${y}&m=${m}&d=${d}&hh=${hh}&m1=${m1}&m2=${m2}&type=1&ticket=ic&expkind=1&userpass=1&ws=2&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1`;
+
+
+
+  window.location.href = url;
+}
+
+function fromcompany() {
   const now = new Date();
 
   const y = now.getFullYear();
@@ -51,10 +71,6 @@ function company() {
 
   const url =
     `https://transit.yahoo.co.jp/search/result?from=%E7%94%B0%E7%94%BA&to=%E6%9D%B1%E6%88%B8%E5%A1%9A&fromgid=&togid=&flatlon=&tlatlon=&via=&viacode=&y=${y}&m=${m}&d=${d}&hh=${hh}&m1=${m1}&m2=${m2}&type=1&ticket=ic&expkind=1&userpass=1&ws=2&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1`;
-
-
-fromgid=&togid=&flatlon=&tlatlon=&via=&viacode=&y=2026&m=07&d=25&hh=17&m1=2&m2=3&type=1&ticket=ic&expkind=1&userpass=1&ws=2&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1
-
 
 
   window.location.href = url;
