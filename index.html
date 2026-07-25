@@ -52,7 +52,7 @@ button:active {
 
 <button class="home" onclick="home()">🏠 帰宅</button>
 
-<button class="hot">🌡️ 暑さチェック</button>
+<button class="heat" onclick="heat()">🌡️ 暑さ・買い物判定</button>
 
 
 <script>
@@ -81,6 +81,10 @@ function company() {
 
 function home() {
   window.location.href = makeYahooUrl("田町", "東戸塚");
+}
+
+function heat() {
+  window.location.href = "heat.html";
 }
 
 
