@@ -15,15 +15,30 @@ body {
     justify-content: center;
     align-items: center;
     font-family: sans-serif;
-    gap: 20px;
+    gap: 24px;
+    background: #f5f5f5;
 }
 
 button {
-    width: 80%;
-    max-width: 400px;
-    height: 80px;
-    font-size: 28px;
-    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    height: 110px;
+    font-size: 34px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+.go {
+    background: #1976d2;
+}
+
+.home {
+    background: #2e7d32;
+}
+button:active {
+    transform: scale(0.97);
 }
 </style>
 
@@ -31,9 +46,9 @@ button {
 
 <h1>通勤アプリ</h1>
 
-<button onclick="company()">出社</button>
+<button class="go" onclick="company()">🚆 会社へ</button>
 
-<button onclick="home()">帰宅</button>
+<button class="home" onclick="home()">🏠 帰宅</button>
 
 
 <script>
