@@ -69,7 +69,12 @@ padding: 20px;
 <pre id="status">取得中...</pre>
 
 <button onclick="testWbgt()">APIテスト</button>
-
+<p style="margin-top:20px;">
+    <a href="https://www.wbgt.env.go.jp/sp/wbgt_data.php"
+       target="_blank">
+       環境省 暑さ指数実況サイト
+    </a>
+</p>
 <script>
 
 async function testWbgt() {
@@ -83,10 +88,19 @@ async function testWbgt() {
     "?data_type=1" +
     "&location_type=1" +
     "&wbgt_nos=46106" +
-    "&date_from=20260726000000" +
-    "&date_to=20260726235959";
+    `&date_from=${today}000000` +
+    `&date_to=${today}235959`;
 
         const response = await fetch(url);
+
+
+const now = new Date();
+
+const y = now.getFullYear();
+const m = String(now.getMonth() + 1).padStart(2, "0");
+const d = String(now.getDate()).padStart(2, "0");
+
+const today = `${y}${m}${d}`;
 
 const data = await response.json();
 
