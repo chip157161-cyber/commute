@@ -82,6 +82,15 @@ async function testWbgt() {
 
     status.textContent = "取得開始";
 
+const now = new Date();
+
+const y = now.getFullYear();
+const m = String(now.getMonth() + 1).padStart(2, "0");
+const d = String(now.getDate()).padStart(2, "0");
+
+const today = `${y}${m}${d}`;
+
+
     try {
         const url =
     "https://www.wbgt.env.go.jp/api/v1/getSurveyData" +
@@ -94,13 +103,6 @@ async function testWbgt() {
         const response = await fetch(url);
 
 
-const now = new Date();
-
-const y = now.getFullYear();
-const m = String(now.getMonth() + 1).padStart(2, "0");
-const d = String(now.getDate()).padStart(2, "0");
-
-const today = `${y}${m}${d}`;
 
 const data = await response.json();
 
