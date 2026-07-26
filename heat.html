@@ -44,13 +44,29 @@ button {
 button:active {
     transform: scale(0.97);
 }
+
+#status {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+
+    font-size: 28px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    font-family: sans-serif;
+
+background: white;
+border-radius: 16px;
+padding: 20px;
+}
 </style>
 
 <body onload="testWbgt()">
 
 <h1>🌡️ 暑さ・買い物判定</h1>
 
-<p id="status">取得中...</p>
+<pre id="status">取得中...</p>
 
 <button onclick="testWbgt()">APIテスト</button>
 
@@ -82,80 +98,63 @@ const wbgt = Number(latest.wbgt_WO);
 
 let result = "";
 
+const shops = [
+    { name: "ヤオコー", distance: 1200 },
+    { name: "オーケー", distance: 900 },
+    { name: "コープ", distance: 700 },
+    { name: "東急ストア", distance: 650 },
+    { name: "まいばすけっと", distance: 300 },
+    { name: "セブンイレブン", distance: 250 }
+];
+
+let maxDistance;
+let comment;
+
 if (wbgt < 25) {
-    result =
-`暑さ指数：${wbgt}
-
-徒歩移動
-1.5km以上OK（30分程度）
-
-買い物
-〇 ヤオコー（1.2km）
-〇 オーケー
-〇 東急
-〇 コープ
-〇 まいばすけっと`;
-
-} else if (wbgt < 28) {
-    result =
-`暑さ指数：${wbgt}
-
-徒歩移動
-1.2km程度まで（20分程度）
-
-買い物
-〇 ヤオコー（無理しない）
-〇 オーケー
-〇 東急
-〇 コープ
-〇 まいばすけっと`;
-
-} else if (wbgt < 31) {
-    result =
-`暑さ指数：${wbgt}
-
-徒歩移動
-1km以内（15分程度）
-
-買い物
-〇 オーケー（900m）
-〇 東急
-〇 コープ
-〇 まいばすけっと
-
-水分を持って行こう`;
-
-} else if (wbgt < 33) {
-    result =
-`暑さ指数：${wbgt}
-
-徒歩移動
-300m以内（5分程度）
-
-買い物
-〇 まいばすけっと
-〇 セブンイレブン
-
-300m以上歩くなら
-冷感タオル必須！`;
-
-} else {
-    result =
-`暑さ指数：${wbgt}
-
-危険レベル
-
-徒歩での買い物はおすすめしません。
-
-どうしても行くなら
-
-〇 セブンイレブンのみ
-〇 冷感タオル
-〇 水分持参
-〇 帽子着用`;
+    maxDistance = 1500;
+    comment = "普段どおり歩けそう";
+}
+else if (wbgt < 28) {
+    maxDistance = 1200;
+    comment = "水分を持って出発";
+}
+else if (wbgt < 31) {
+    maxDistance = 1000;
+    comment = "帽子・水分推奨";
+}
+else if (wbgt < 33) {
+    maxDistance = 300;
+    comment = "300m以上歩くなら冷感タオル必須";
+}
+else {
+    maxDistance = 250;
+    comment = "危険。徒歩は最小限に";
 }
 
+let result =
+`🌡️ 暑さ指数 ${wbgt}
+
+徒歩目安
+${maxDistance}m以内
+
+買い物
+`;
+
+for (const shop of shops) {
+
+    if (shop.distance <= maxDistance) {
+        result += `⭕ ${shop.name}（${shop.distance}m）\n`;
+    } else {
+        result += `❌ ${shop.name}（${shop.distance}m）\n`;
+    }
+
+}
+
+result += `\n💧 ${comment}`;
+
 status.textContent = result;
+
+
     } catch (e) {
         status.textContent =
             "エラー: " + e.message;
