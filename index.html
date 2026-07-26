@@ -44,13 +44,31 @@ button {
 button:active {
     transform: scale(0.97);
 }
+
+input[type="text"] {
+    width: 90%;
+    max-width: 500px;
+    height: 50px;
+    font-size: 22px;
+    border-radius: 12px;
+    padding: 0 12px;
+    box-sizing: border-box;
+}
 </style>
 
 <body>
 
 <button class="go" onclick="company()">🚆 会社へ</button>
+<input
+    type="text"
+    id="destination"
+    placeholder="目的地を変更（空欄なら田町）">
 
 <button class="home" onclick="home()">🏠 帰宅</button>
+<input
+    type="text"
+    id="departure"
+    placeholder="出発地を変更（空欄なら田町）">
 
 <button class="heat" onclick="heat()">🌡️ 暑さ・買い物判定</button>
 
@@ -75,12 +93,29 @@ function makeYahooUrl(from, to) {
   return `https://transit.yahoo.co.jp/search/result?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&fromgid=&togid=&flatlon=&tlatlon=&via=&viacode=&y=${y}&m=${m}&d=${d}&hh=${hh}&m1=${m1}&m2=${m2}&type=1&ticket=ic&expkind=1&userpass=1&ws=3&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1`;
 }
 
+
+
 function company() {
-  window.location.href = makeYahooUrl("東戸塚", "田町");
+  let destination =
+      document.getElementById("destination").value.trim();
+  if (destination === "") {
+    destination = "田町";
+  }
+  window.location.href =
+      makeYahooUrl("東戸塚", destination);
 }
 
 function home() {
-  window.location.href = makeYahooUrl("田町", "東戸塚");
+
+  let departure =
+      document.getElementById("departure").value.trim();
+
+  if (departure === "") {
+    departure = "田町";
+  }
+
+  window.location.href =
+      makeYahooUrl(departure, "東戸塚");
 }
 
 function heat() {
