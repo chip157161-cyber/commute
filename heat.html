@@ -46,7 +46,6 @@ button:active {
 }
 </style>
 
-<body>
 <body onload="testWbgt()">
 
 <h1>🌡️ 暑さ・買い物判定</h1>
@@ -80,8 +79,12 @@ async function testWbgt() {
 
         const response = await fetch(url);
 
+        const text = await response.text();
+
+        console.log(text);
+
         status.textContent =
-            "HTTP " + response.status;
+            "HTTP " + response.status + "\n" + text;
 
     } catch (e) {
         status.textContent =
