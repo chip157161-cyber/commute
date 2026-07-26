@@ -170,37 +170,31 @@ let levelBar = "";
 
 if (wbgt < 21) {
     levelBar =
-`🟦　🟩　 🟨　🟧  🟥
-安全 注意 警戒 厳重 危険
+`🟦安全｜🟩注意｜🟨警戒｜🟧厳重｜🟥危険
  ▲`;
 }
 else if (wbgt < 25) {
     levelBar =
-`🟦　🟩　 🟨　🟧  🟥
-安全 注意 警戒 厳重 危険
-     ▲`;
+`🟦安全｜🟩注意｜🟨警戒｜🟧厳重｜🟥危険
+   　　　  ▲`;
 }
 else if (wbgt < 28) {
     levelBar =
-`🟦　🟩　 🟨　🟧  🟥
-安全 注意 警戒 厳重 危険
-          ▲`;
+`🟦安全｜🟩注意｜🟨警戒｜🟧厳重｜🟥危険
+         　　　　 ▲`;
 }
 else if (wbgt < 31) {
     levelBar =
-`🟦　🟩　 🟨　🟧  🟥
-安全 注意 警戒 厳重 危険
-               ▲`;
+`🟦安全｜🟩注意｜🟨警戒｜🟧厳重｜🟥危険
+               　　　　　　▲`;
 }
 else {
     levelBar =
-`🟦　🟩　 🟨　🟧  🟥
-安全 注意 警戒 厳重 危険
-                   ▲`;
+`🟦安全｜🟩注意｜🟨警戒｜🟧厳重｜🟥危険
+                 　　　　　　　  ▲`;
 }
 
 result = levelBar + "\n\n" + result;
-
 status.textContent = result;
 
 
