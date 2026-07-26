@@ -20,8 +20,7 @@ body {
 }
 
 button {
-    width: 90%;
-    max-width: 500px;
+    width: 100%;
     height: 110px;
     font-size: 34px;
     font-weight: bold;
@@ -54,21 +53,32 @@ input[type="text"] {
     padding: 0 12px;
     box-sizing: border-box;
 }
+.group {
+    width: 90%;
+    max-width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
 </style>
 
 <body>
-
+<div class="group">
 <button class="go" onclick="company()">🚆 会社へ</button>
 <input
     type="text"
     id="destination"
     placeholder="目的地を変更（空欄なら田町）">
+</div>
 
+<div class="group">
 <button class="home" onclick="home()">🏠 帰宅</button>
 <input
     type="text"
     id="departure"
     placeholder="出発地を変更（空欄なら田町）">
+</div>
 
 <button class="heat" onclick="heat()">🌡️ 暑さ・買い物判定</button>
 
