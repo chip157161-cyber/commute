@@ -147,25 +147,30 @@ const shops = [
 let maxDistance;
 let comment;
 
-if (wbgt < 25) {
+if (wbgt < 21) {
     maxDistance = 1500;
+    playTime = "60分程度";
     comment = "普段どおり歩けそう";
 }
-else if (wbgt < 28) {
+else if (wbgt < 25) {
     maxDistance = 1200;
+    playTime = "45分程度";
     comment = "水分を持って出発";
 }
-else if (wbgt < 31) {
+else if (wbgt < 28) {
     maxDistance = 1000;
-    comment = "帽子・水分推奨";
+    playTime = "30分程度";
+    comment = "積極的に休息";
 }
-else if (wbgt < 33) {
-    maxDistance = 300;
-    comment = "300m以上歩くなら冷感タオル必須";
+else if (wbgt < 31) {
+    maxDistance = 700;
+    playTime = "15分程度";
+    comment = "激しい運動は中止";
 }
 else {
-    maxDistance = 250;
-    comment = "危険。徒歩は最小限に";
+    maxDistance = 300;
+    playTime = "屋外遊びはおすすめしません";
+    comment = "運動は原則中止";
 }
 
 let result =
@@ -173,6 +178,9 @@ let result =
 
 徒歩目安
 ${maxDistance}m以内
+
+外遊び
+${playTime}
 
 買い物
 `;
