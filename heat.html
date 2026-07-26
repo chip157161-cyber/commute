@@ -56,18 +56,6 @@ button:active {
 
 <script>
 
-async function testApi() {
-  try {
-    alert("fetch開始");
-
-    const response = await fetch("https://www.wbgt.env.go.jp/sp/wbgt/data/WBGT.php");
-
-    alert("HTTPステータス: " + response.status);
-  } catch (e) {
-    alert("エラー: " + e);
-  }
-}
-
 async function testWbgt() {
     const status = document.getElementById("status");
 
@@ -84,12 +72,15 @@ async function testWbgt() {
 
         const response = await fetch(url);
 
-        const text = await response.text();
+const data = await response.json();
 
-        console.log(text);
+const latest = [...data.data]
+    .reverse()
+    .find(item => item.wbgt_WO !== null);
 
-        status.textContent =
-            "HTTP " + response.status + "\n" + text;
+status.textContent =
+    latest.wbgt_date + "\n" +
+    latest.wbgt_WO;
 
     } catch (e) {
         status.textContent =
