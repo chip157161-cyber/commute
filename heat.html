@@ -42,39 +42,28 @@ button {
 }
 .level-table {
     width: 100%;
-    table-layout: fixed;
     border-collapse: separate;
-    border-spacing: 8px;
+    border-spacing: 6px;
     margin-bottom: 8px;
+    table-layout: fixed;
 }
 
 .level-table td {
     border: none;
-    border-radius: 14px;
+    border-radius: 10px;
     text-align: center;
-    vertical-align: middle;
-    padding: 12px 4px;
-    font-weight: bold;
-    line-height: 1.2;
+    padding: 8px 2px;
 }
 
 .level-name {
     font-size: 16px;
-}
-
-.level-name td {
-    height: 88px;
-}
-
-.level-name td br + * {
-    font-size: 26px;
-    color: #d93025;
     font-weight: bold;
+    line-height: 1.2;
 }
 
 .level-arrow {
-    font-size: 22px;
-    height: 18px;
+    font-size: 28px;
+    height: 24px;
     line-height: 1;
 }
 
@@ -252,32 +241,19 @@ const levelBar = `
 <table class="level-table">
 
 <tr class="level-name">
+<td class="safe">安全</td>
+<td class="caution">注意</td>
+<td class="warning">警戒</td>
+<td class="severe">厳重<br>警戒</td>
+<td class="danger">危険</td>
+</tr>
 
-<td class="safe">
-    安全<br>
-    ${current[0]}
-</td>
-
-<td class="caution">
-    注意<br>
-    ${current[1]}
-</td>
-
-<td class="warning">
-    警戒<br>
-    ${current[2]}
-</td>
-
-<td class="severe">
-    厳重<br>警戒<br>
-    ${current[3]}
-</td>
-
-<td class="danger">
-    危険<br>
-    ${current[4]}
-</td>
-
+<tr class="level-arrow">
+<td>${current[0]}</td>
+<td>${current[1]}</td>
+<td>${current[2]}</td>
+<td>${current[3]}</td>
+<td>${current[4]}</td>
 </tr>
 
 </table>
