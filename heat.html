@@ -56,7 +56,7 @@ button:active {
 
 <p id="status">取得中...</p>
 
-<button onclick="testApi()">APIテスト</button>
+<button onclick="testWbgt()">APIテスト</button>
 
 <script>
 
@@ -70,6 +70,26 @@ async function testApi() {
   } catch (e) {
     alert("エラー: " + e);
   }
+}
+
+async function testWbgt() {
+    const status = document.getElementById("status");
+
+    status.textContent = "取得開始";
+
+    try {
+        const url =
+            "https://www.wbgt.env.go.jp/api/v1/getSurveyData?wbgt_nos=46106";
+
+        const response = await fetch(url);
+
+        status.textContent =
+            "HTTP " + response.status;
+
+    } catch (e) {
+        status.textContent =
+            "エラー: " + e.message;
+    }
 }
 </script>
 
